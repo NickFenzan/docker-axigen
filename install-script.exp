@@ -1,0 +1,12 @@
+#!/usr/bin/expect -f
+spawn ./axigen-10.1.0.x86_64.rpm.run
+expect "Please accept the terms of the license before continuing\r\nPress ENTER to display the license\r\n(after reading it press 'q' to exit viewer)"
+send -- "\r"
+expect -re {--More--}
+send -- "q"
+expect "Do you accept the terms of the license? (yes/no):"
+send "yes\r"
+expect "Your choice:"
+send "1\r"
+set timeout -1
+expect eof
